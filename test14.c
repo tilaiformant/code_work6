@@ -2,18 +2,19 @@
 #include <string.h>
 int main()
 {
-   char password[12];
-   int len;
-   printf("建立密碼 : ");
-   scanf("%s", password);
-   len = strlen(password);
-   if ( len > 10 )
-      printf("密碼長度超出限制\n");
-   else if ( len < 6)
-      printf("密碼長度太短\n");
-   else
-      printf("建立密碼 OK\n");
-
+   char time[][50] = {"09:00 - 10:00",
+                      "10:00 - 10:50",
+                      "11:00 - 11:50"};
+   char course[][50] = {"AI 數學",
+                        "Python",
+                        "現代物理"};
+   int i, len;
+   len = sizeof(time) / sizeof(time[0]);
+   for ( i = 0; i < len; i++ )
+      strcat(time[i],course[i]);
+   printf("我今天的課表\n");
+   for ( i = 0; i < len; i++ )
+      printf("%s\n",time[i]);
    getchar();
    return 0;
 }
